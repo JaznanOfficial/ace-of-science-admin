@@ -1,0 +1,12 @@
+.add_modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.575);
+  z-index: 5;
+}
