@@ -23,6 +23,7 @@
 
 .see-more{
     color: brown !important;
+    text-decoration: none !important;
 }
 .see-more:hover{
     color: tomato !important;

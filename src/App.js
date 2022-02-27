@@ -27,7 +27,7 @@ function App() {
             path="/"
             element={
               <Auth>
-                <h1>d</h1>
+                <h1>Ace of science Admin panel is under constraction. Please visit nav link above (admin user, blog, review etc)</h1>
               </Auth>
             }
           />
