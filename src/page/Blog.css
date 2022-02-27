@@ -20,3 +20,15 @@
     color: black !important;
     text-decoration: none !important;
 }
+
+.see-more{
+    color: brown !important;
+}
+.see-more:hover{
+    color: tomato !important;
+}
+
+.card-img-top{
+    width: 320px !important;
+    border-radius: 10px !important;
+}
