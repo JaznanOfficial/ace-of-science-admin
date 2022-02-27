@@ -72,7 +72,7 @@ export default function ListUser() {
                   </Link>
                   {user.role === 'admin' && user._id !== u._id && (
                     <Button
-                      className="btn btn-sm btn-danger"
+                      className="btn btn-sm btn-danger ms-2"
                       onClick={() => deleteUser(u._id, u.name)}
                     >
                       Delete
