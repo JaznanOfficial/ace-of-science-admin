@@ -33,6 +33,9 @@ export default function Header() {
             <Link className="nav-link" to="lesson">
               Lesson
             </Link>
+            <Link className="nav-link" to="review">
+              review
+            </Link>
           </Nav>
           <span className="text-white">{user.name}</span>
 
