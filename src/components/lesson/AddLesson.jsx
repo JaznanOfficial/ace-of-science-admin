@@ -57,11 +57,11 @@ export default function AddLesson({ close, subjectCode }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="name">
+          <Form.Group className="mb-3 description-form" controlId="name">
             <Form.Label>Description:</Form.Label> <br />
             <textarea
               cols={120}
-              rows={3}
+              rows={10}
               onChange={(e) => setDesrp(e.target.value)}
             >
               {desrp}

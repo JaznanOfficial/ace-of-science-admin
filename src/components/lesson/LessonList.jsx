@@ -65,7 +65,7 @@ export default function LessonList({ subjectCode, addVideo }) {
           </Button>
         )}
 
-        <ul>
+        <div>
           {lessons[subjectCode]?.map((l, key) => (
             <li key={key}>
               <Row>
@@ -103,7 +103,7 @@ export default function LessonList({ subjectCode, addVideo }) {
               </Row>
             </li>
           ))}
-        </ul>
+        </div>
       </div>
     );
 }

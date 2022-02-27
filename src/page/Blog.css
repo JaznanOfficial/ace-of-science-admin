@@ -1,0 +1,22 @@
+.public-DraftStyleDefault-ltr{
+    /* border: 3px solid tomato; */
+}
+
+.editorClassName{
+    border: 3px solid rgb(224, 203, 203);
+    height: 400px !important;
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 10;
+    font-size: large;
+}
+.toolbarClassName{
+    background-color: black !important;
+    text-decoration: none !important;
+    color: black !important;
+    border-radius: 10px !important;
+}
+.toolbarClassName span{
+    color: black !important;
+    text-decoration: none !important;
+}

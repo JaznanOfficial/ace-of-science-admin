@@ -35,22 +35,23 @@ export default function Subjecttree() {
     return <h2>Loading Subjects</h2>;
   } else
     return (
-      <div>
+      <div  className='list-group'>
         <p className="text-danger">{errMsg}</p>
-        <ul>
+        <ol>
           {subjects[searchParams.get('cls')].map((s, key) => (
             <li key={key}>
               <Link
                 to={'/lesson?cls=' + s.classCode + '&subjcode=' + s.subjectCode}
+                type="button" class="list-group-item list-group-item-action"
               >
                 {s.name}
-              </Link>
-              <span>
-                <span className="btn text-info btn-sm">&#9998;</span>
-              </span>
+                </Link>
+                <i class="fa-solid fa-pen-to-square" type='button'></i>
+                
+                
             </li>
           ))}
-        </ul>
+        </ol>
         {!subjects[searchParams.get('cls')].length && (
           <p className="text-danger">No subject of the class </p>
         )}
