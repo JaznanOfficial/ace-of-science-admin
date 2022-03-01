@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Auth from './components/Auth';
 import Header from './components/Header';
+import Magazine from './components/Magazine/Magazine';
 import Review from './components/Review/Review';
 import Blog from './page/Blog';
 import Lesson from './page/Lesson';
@@ -53,6 +54,14 @@ function App() {
             element={
               <Auth>
                 <Lesson />
+              </Auth>
+            }
+          />
+          <Route
+            path="/magazine"
+            element={
+              <Auth>
+                <Magazine />
               </Auth>
             }
           />

@@ -35,6 +35,9 @@ export default function Header() {
                                 <Link className="nav-link" to="lesson">
                                     Lesson
                                 </Link>
+                                <Link className="nav-link" to="magazine">
+                                    Magazine
+                                </Link>
                                 <Link className="nav-link" to="review">
                                     review
                                 </Link>
