@@ -1,27 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useStateValue } from '../../store/Store';
-import './classtree.css'
+import React from "react";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useStateValue } from "../../store/Store";
+import "./classtree.css";
 
 export default function Classtree() {
-  const [{ classes }] = useStateValue();
-  return (
-    <div className='list-group'>
-      <ul>
-      <li>
-      Academic
-          <ol>
+    const [{ classes }] = useStateValue();
+    return (
+        <div>
+            <h2 className="align-center">Academic</h2>
+            <p className="text-danger"></p>
             {classes.academic?.map((c, key) => (
-              <Link to={'/lesson?cls=' + c.classCode} key={key} type="button" class="list-group-item list-group-item-action">
-                <li className='px-3 mx-2'>{c.name}</li>
-              </Link>
+                <div className="d-flex flex-rew justify-content-start align-items-center m-2">
+                    <Link
+                        to={"/lesson?cls=" + c.classCode}
+                        key={key}
+                        type="button"
+                        
+                    >
+                        <Button>{c.name}</Button>
+                </Link>
+                <Button variant="outline-danger" className="ms-2">Remove</Button>
+                </div>
             ))}
-          </ol>
-        </li>
-        {Object.values(classes).map(
-          (c, key) => c.name && <li key={key}>{c.name}</li>
-        )}
-      </ul>
-    </div>
-  );
+
+            {Object.values(classes).map((c, key) => c.name && <li key={key}>{c.name}</li>)}
+        </div>
+    );
 }

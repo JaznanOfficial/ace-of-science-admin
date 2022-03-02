@@ -64,7 +64,7 @@ export default function Watch() {
     return <h3>Loding video. . .</h3>;
   else
     return (
-      <div>
+      <div className='shadow'>
         <Container>
           <p className="text-danger">{errMsg}</p>
           <iframe
