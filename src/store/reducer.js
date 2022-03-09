@@ -23,17 +23,46 @@ const reducer = (state, action) => {
         ...state,
         users: [...state.users, action.payload],
       };
+
     case 'setClasses':
       return {
         ...state,
         classes: action.payload,
       };
+    case 'addClass':
+      if (action.payload.classType === 'academic')
+        return {
+          ...state,
+          classes: {
+            ...state.classes,
+            academic: [...state.classes.academic, action.payload],
+          },
+        };
+      else
+        return {
+          ...state,
+          classes: {
+            ...state.classes,
+            [action.payload.classType]: action.payload,
+          },
+        };
     case 'setSubject':
       return {
         ...state,
         subjects: {
           ...(state.subjects || {}),
           [action.payload.classCode]: action.payload.subjectsArr,
+        },
+      };
+    case 'addSubject':
+      return {
+        ...state,
+        subjects: {
+          ...(state.subjects || {}),
+          [action.payload.classCode]: [
+            ...state.subjects[action.payload.classCode],
+            action.payload,
+          ],
         },
       };
     case 'setLessons':
