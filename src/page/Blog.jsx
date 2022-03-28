@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import "./Blog.css";
+import Swal from "sweetalert2";
 
 const Blog = () => {
     const imageRef = useRef();
@@ -25,6 +26,13 @@ const Blog = () => {
             },
             body: JSON.stringify(blogs),
         });
+        new Swal({
+            title: "Good job!",
+            text: "Your review successfully sent! Please stay with us",
+            icon: "success",
+        });
+
+        e.target.reset();
     }
 
     return (
