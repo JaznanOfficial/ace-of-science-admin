@@ -90,9 +90,9 @@ const Blog = () => {
                                     className="m-3"
                                 />
                                 <Card.Body>
-                                    <h3>{singleBlog.heading}</h3>
+                                    <h3 className="text-center text-danger">{singleBlog.heading}</h3>
                                     <Card.Text>
-                                        {singleBlog.text}
+                                        {singleBlog.text.slice(0,200)}...
                                     </Card.Text>
                                 </Card.Body>
                                 <Card.Footer>
