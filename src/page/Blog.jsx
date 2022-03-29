@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import "./Blog.css";
 import Swal from "sweetalert2";
@@ -33,7 +33,18 @@ const Blog = () => {
         });
 
         e.target.reset();
+
     }
+    // getting data--------------------------->
+    
+            const [getBlogs, setGetBlogs] = useState([])
+        
+            useEffect(() => {
+                fetch('https://enigmatic-crag-58614.herokuapp.com/blogs')
+                    .then(res => res.json())
+                .then(data=>setGetBlogs(data))
+            },[])
+        console.log(getBlogs);
 
     return (
         <div>
@@ -70,20 +81,18 @@ const Blog = () => {
                 <h1 className="text-danger">Posted All Blogs</h1>
 
                 <Row xs={1} md={3} className="g-4">
-                    {Array.from({ length: 4 }).map((_, idx) => (
-                        <Col>
+                    {
+                        getBlogs.map(singleBlog =><Col>
                             <Card className="shadow">
                                 <Card.Img
                                     variant="top"
-                                    src="https://thumbs.dreamstime.com/b/freedom-concept-silhouettes-broken-chain-birds-flying-sky-180470108.jpg"
+                                    src={singleBlog.imageLink}
                                     className="m-3"
                                 />
                                 <Card.Body>
-                                    <h3>Card title</h3>
+                                    <h3>{singleBlog.heading}</h3>
                                     <Card.Text>
-                                        This is a longer card with supporting text below as a
-                                        natural lead-in to additional content. This content is a
-                                        little bit longer.
+                                        {singleBlog.text}
                                     </Card.Text>
                                 </Card.Body>
                                 <Card.Footer>
@@ -97,8 +106,10 @@ const Blog = () => {
                                     </Button>
                                 </Card.Footer>
                             </Card>
-                        </Col>
-                    ))}
+                    </Col> )
+                    }
+                        
+                    
                 </Row>
             </div>
         </div>
