@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import "./Blog.css";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 const Blog = () => {
     const imageRef = useRef();
     const headingRef = useRef();
     const textRef = useRef();
-
+    
+    
 
 
 
@@ -17,7 +19,6 @@ const Blog = () => {
         const heading = headingRef.current.value;
         const text = textRef.current.value;
         const blogs = { imageLink, heading, text };
-        console.log(blogs);
         
         fetch("https://enigmatic-crag-58614.herokuapp.com/blogs", {
             method: "POST",
@@ -25,26 +26,58 @@ const Blog = () => {
                 "content-type": "application/json",
             },
             body: JSON.stringify(blogs),
-        });
-        new Swal({
-            title: "Good job!",
-            text: "Your review successfully sent! Please stay with us",
-            icon: "success",
-        });
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.acknowledged ===true);
+                if (data) {
+                    swal({
+                        title: "Good job!",
+                        text: "Your Blogs successfully posted! Please stay with us",
+                        icon: "success",
+                    });
+                    
+                    e.target.reset();
+                }
+               
+        })
+           
 
-        e.target.reset();
+
 
     }
     // getting data--------------------------->
     
-            const [getBlogs, setGetBlogs] = useState([])
-        
+    const [getBlogs, setGetBlogs] = useState([])
             useEffect(() => {
                 fetch('https://enigmatic-crag-58614.herokuapp.com/blogs')
                     .then(res => res.json())
-                .then(data=>setGetBlogs(data))
+                    .then(data => {
+                        setGetBlogs(data)
+                        
+                    })
             },[])
-        console.log(getBlogs);
+    // console.log(getBlogs);
+    
+
+
+    const deleteBlogHandler = (id) => {
+        fetch(`https://enigmatic-crag-58614.herokuapp.com/blogs/${id}`,{
+            method:'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    swal({
+                        title: "Good job!",
+                        text: "Your Blog is Successfully deleted",
+                        icon: "success",
+                      });
+                    const remainingBlogs = getBlogs.filter(blog => blog._id !== id);
+                    setGetBlogs(remainingBlogs);
+                }
+            })
+    }
 
     return (
         <div>
@@ -101,7 +134,7 @@ const Blog = () => {
                                             See More <i class="fas fa-arrow-circle-right"></i>{" "}
                                         </a>
                                     </strong>
-                                    <Button variant="outline-danger" className="m-1">
+                                    <Button variant="outline-danger" className="m-1" onClick={()=> deleteBlogHandler(singleBlog._id)}>
                                         <strong>Remove this Blog</strong>
                                     </Button>
                                 </Card.Footer>
