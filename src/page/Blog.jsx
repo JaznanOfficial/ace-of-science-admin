@@ -3,6 +3,7 @@ import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import "./Blog.css";
 // import Swal from "sweetalert2";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
     const imageRef = useRef();
@@ -58,25 +59,39 @@ const Blog = () => {
                     })
             },[])
     // console.log(getBlogs);
-    
+    const reverseBlogs = [...getBlogs].reverse();
 
 
     const deleteBlogHandler = (id) => {
-        fetch(`https://enigmatic-crag-58614.herokuapp.com/blogs/${id}`,{
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+              if (willDelete) {
+                fetch(`https://enigmatic-crag-58614.herokuapp.com/blogs/${id}`,{
             method:'DELETE'
         })
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    swal({
-                        title: "Good job!",
-                        text: "Your Blog is Successfully deleted",
-                        icon: "success",
-                      });
                     const remainingBlogs = getBlogs.filter(blog => blog._id !== id);
                     setGetBlogs(remainingBlogs);
                 }
             })
+              swal("Blog is successfully deleted!", {
+                icon: "success",
+              });
+            } else {
+              swal("Blog is not deleted. file is safe!");
+            }
+          });
+
+
+        
     }
 
     return (
@@ -115,7 +130,7 @@ const Blog = () => {
 
                 <Row xs={1} md={3} className="g-4">
                     {
-                        getBlogs.map(singleBlog =><Col>
+                        reverseBlogs.map(singleBlog =><Col>
                             <Card className="shadow">
                                 <Card.Img
                                     variant="top"
@@ -128,12 +143,15 @@ const Blog = () => {
                                         {singleBlog.text.slice(0,200)}...
                                     </Card.Text>
                                 </Card.Body>
-                                <Card.Footer>
-                                    <strong className="mb-3">
-                                        <a href="#" className="see-more">
-                                            See More <i class="fas fa-arrow-circle-right"></i>{" "}
-                                        </a>
-                                    </strong>
+                                <Card.Footer className="d-flex flex-row justify-content-around align-items-center">
+                                    
+                                        <Link to={`/single-blog/${singleBlog._id}`} className='see-more'>
+                                        <Button variant="outline-success" className="m-1">
+                                        <strong>See More <i class="fas fa-arrow-circle-right"></i>{" "}</strong>
+                                    </Button>
+                                            
+                                        </Link>
+                                   
                                     <Button variant="outline-danger" className="m-1" onClick={()=> deleteBlogHandler(singleBlog._id)}>
                                         <strong>Remove this Blog</strong>
                                     </Button>

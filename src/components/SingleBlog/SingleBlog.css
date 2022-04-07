@@ -1,0 +1,22 @@
+.single-blog{
+    /* border: 2px solid crimson; */
+}
+
+.single-blog img{
+    width: 62rem;
+}
+
+
+
+@media only screen and (max-width: 520px) {
+    .single-blog img{
+        width: 100% !important;
+    }
+    .single-blog{
+        margin: 0 50px !important;
+        width: 100% !important;
+    }
+    .container{
+        width: 100% !important;
+    }
+  }

@@ -19,21 +19,35 @@ console.log(reverseRatings);
 
     const deleteReviewHandler = (id) => {
         console.log(id);
-        fetch(`https://enigmatic-crag-58614.herokuapp.com/review/${id}`,{
-            method:'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    swal({
-                        title: "Good job!",
-                        text: "Your Blog is Successfully deleted",
-                        icon: "success",
-                      });
-                    const remainingBlogs = ratings.filter(rating => rating._id !== id);
-                    setRatings(remainingBlogs);
-                }
-            })
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+              if (willDelete) {
+                fetch(`https://enigmatic-crag-58614.herokuapp.com/review/${id}`,{
+                    method:'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            
+                            const remainingBlogs = ratings.filter(rating => rating._id !== id);
+                            setRatings(remainingBlogs);
+                        }
+                    })
+              swal("Review is successfully deleted!", {
+                icon: "success",
+              });
+            } else {
+              swal("Review is not deleted. file is safe!");
+            }
+          });
+        
     }
     return (
         <div class="container my-3">

@@ -5,6 +5,7 @@ import Auth from './components/Auth';
 import Header from './components/Header';
 import Magazine from './components/Magazine/Magazine';
 import Review from './components/Review/Review';
+import SingleBlog from './components/SingleBlog/SingleBlog';
 import Blog from './page/Blog';
 import Lesson from './page/Lesson';
 import Login from './page/Login';
@@ -49,6 +50,14 @@ function App() {
               </Auth>
             }
           />
+          <Route
+                            path="/single-blog/:id"
+                            element={
+                                <Auth>
+                                    <SingleBlog />
+                                </Auth>
+                            }
+                        />
           <Route
             path="/lesson"
             element={
