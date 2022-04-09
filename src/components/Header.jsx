@@ -41,6 +41,9 @@ export default function Header() {
                                 <Link className="nav-link" to="review">
                                     review
                                 </Link>
+                                <Link className="nav-link" to="events">
+                                    Events
+                                </Link>
                             
 
                             {user._id && (
