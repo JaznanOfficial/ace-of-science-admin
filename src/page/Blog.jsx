@@ -37,7 +37,6 @@ const Blog = () => {
                         text: "Your Blogs successfully posted! Please stay with us",
                         icon: "success",
                     });
-                    
                     e.target.reset();
                 }
                
