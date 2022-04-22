@@ -21,7 +21,7 @@ const Blog = () => {
         const text = textRef.current.value;
         const blogs = { imageLink, heading, text };
         
-        fetch("https://enigmatic-crag-58614.herokuapp.com/blogs", {
+        fetch("https://warm-citadel-00877.herokuapp.com/blogs", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -51,7 +51,7 @@ const Blog = () => {
     
     const [getBlogs, setGetBlogs] = useState([])
             useEffect(() => {
-                fetch('https://enigmatic-crag-58614.herokuapp.com/blogs')
+                fetch('https://warm-citadel-00877.herokuapp.com/blogs')
                     .then(res => res.json())
                     .then(data => {
                         setGetBlogs(data)
@@ -72,7 +72,7 @@ const Blog = () => {
           })
           .then((willDelete) => {
               if (willDelete) {
-                fetch(`https://enigmatic-crag-58614.herokuapp.com/blogs/${id}`,{
+                fetch(`https://warm-citadel-00877.herokuapp.com/blogs/${id}`,{
             method:'DELETE'
         })
             .then(res => res.json())

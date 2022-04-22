@@ -9,7 +9,7 @@ const Review = () => {
     const [ratings, setRatings] = useState([]);
 
     useEffect(() => {
-        fetch("https://enigmatic-crag-58614.herokuapp.com/review")
+        fetch("https://warm-citadel-00877.herokuapp.com/review")
             .then((res) => res.json())
             .then((data) => setRatings(data));
     }, []);
@@ -29,7 +29,7 @@ console.log(reverseRatings);
           })
           .then((willDelete) => {
               if (willDelete) {
-                fetch(`https://enigmatic-crag-58614.herokuapp.com/review/${id}`,{
+                fetch(`https://warm-citadel-00877.herokuapp.com/review/${id}`,{
                     method:'DELETE'
                 })
                     .then(res => res.json())
