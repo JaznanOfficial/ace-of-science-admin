@@ -6,27 +6,27 @@ const Magazine = () => {
         <div className="container">
             <h1>Magazine</h1>
             <form>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="pdfLink">Link of pdf</label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleInputEmail1"
                         aria-describedby="emailHelp"
                         placeholder="Pdf Link"
                     />
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                     <label for="exampleInputPassword1">Image that will show to user</label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleInputPassword1"
                         placeholder="Image Link"
                     />
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-3">
+                <button type="submit" className="btn btn-primary mt-3">
                     Submit
                 </button>
             </form>
@@ -43,9 +43,8 @@ const Magazine = () => {
                                     src="https://thumbs.dreamstime.com/b/freedom-concept-silhouettes-broken-chain-birds-flying-sky-180470108.jpg"
                                     className="m-3"
                                 />
-                                
+
                                 <Card.Footer>
-                                    
                                     <Button variant="outline-danger" className="m-1">
                                         <strong>Remove this Magazine</strong>
                                     </Button>

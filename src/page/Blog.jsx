@@ -8,7 +8,7 @@ import swal from "sweetalert";
 
 const Blog = () => {
     const editor = useRef(null);
-    const [content, setContent] = useState("");
+    const [content, setContent] = useState('');
 
     const config = {
         readonly: false, // all options from https://xdsoft.net/jodit/doc/,
@@ -23,18 +23,23 @@ const Blog = () => {
         },
     };
     const blogHandler = (e) => {
+        setContent(editor.current.value);
         e.preventDefault();
         // setContent(e);
-        setContent(editor.current.value);
-        // console.log({ content });
-        const data = { content }
-        console.log(data);
+        // console.log(editor.current.value);
+        const content = {
+            content:  editor.current.value 
+        }
+        console.log(content);
+   
+        // const data = { content }
+        // console.log(data);
         fetch("https://warm-citadel-00877.herokuapp.com/blogs", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(content),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -45,7 +50,7 @@ const Blog = () => {
                         text: "Your Blogs successfully posted! Please stay with us",
                         icon: "success",
                     });
-                    e.target.reset();
+                  setContent('')
                 }
             });
     };

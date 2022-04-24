@@ -52,8 +52,8 @@ const GetBlog = () => {
                 <Row xs={1} md={3} className="g-4">
                     {reverseBlogs.map((singleBlog) => {
                         const content = singleBlog.content
-                        console.log(content);
-                        return <Col>
+                        // console.log(content);
+                        return <Col key={singleBlog._id}>
                             <Card className="shadow" >
                                 <Card.Body dangerouslySetInnerHTML={{
                                     __html:  content
@@ -68,7 +68,7 @@ const GetBlog = () => {
                                     >
                                         <Button variant="outline-success" className="m-1">
                                             <strong>
-                                                See More <i class="fas fa-arrow-circle-right"></i>{" "}
+                                                See More <i className="fas fa-arrow-circle-right"></i>{" "}
                                             </strong>
                                         </Button>
                                     </Link>

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./Review.css";
 
 import { Col, Row } from "react-bootstrap";
@@ -14,8 +14,7 @@ const Review = () => {
             .then((data) => setRatings(data));
     }, []);
     const reverseRatings = [...ratings].reverse();
-console.log(reverseRatings);
-
+    console.log(reverseRatings);
 
     const deleteReviewHandler = (id) => {
         console.log(id);
@@ -26,61 +25,63 @@ console.log(reverseRatings);
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
-              if (willDelete) {
-                fetch(`https://warm-citadel-00877.herokuapp.com/review/${id}`,{
-                    method:'DELETE'
+        }).then((willDelete) => {
+            if (willDelete) {
+                fetch(`https://warm-citadel-00877.herokuapp.com/review/${id}`, {
+                    method: "DELETE",
                 })
-                    .then(res => res.json())
-                    .then(data => {
+                    .then((res) => res.json())
+                    .then((data) => {
                         if (data.deletedCount > 0) {
-                            
-                            const remainingBlogs = ratings.filter(rating => rating._id !== id);
+                            const remainingBlogs = ratings.filter((rating) => rating._id !== id);
                             setRatings(remainingBlogs);
                         }
-                    })
-              swal("Review is successfully deleted!", {
-                icon: "success",
-              });
+                    });
+                swal("Review is successfully deleted!", {
+                    icon: "success",
+                });
             } else {
-              swal("Review is not deleted. file is safe!");
+                swal("Review is not deleted. file is safe!");
             }
-          });
-        
-    }
+        });
+    };
     return (
-        <div class="container my-3">
+        <div className="container my-3">
             <Row xs={1} md={1} className="g-4">
-
                 {reverseRatings.map((rating) => (
                     <Col className="border py-3">
-                        <div class="d-lg-flex justify-content-around align-items-center text-center">
+                        <div className="d-lg-flex justify-content-around align-items-center text-center">
                             <div>
                                 <img
                                     src={rating.photo}
                                     alt="img not found"
-                                    class="profile-photo-lg"
+                                    className="profile-photo-lg"
                                 />
                                 <h3 className="text-danger text-center">{rating.name}</h3>
                                 <p>{rating.profession}</p>
                             </div>
                             <div className="w-100 p-5">
-                            
-                                <p class="text-muted text-start">{rating.text} </p>
+                                <p className="text-muted text-start">{rating.text} </p>
                                 <div className="text-center">
-                                <Rating
-                                className="text-danger"
-                                emptySymbol="fa fa-star-o"
-                                fullSymbol="fa fa-star"
-                                initialRating={rating.rating}
-                                readonly
-                            />
+                                    <Rating
+                                        className="text-danger"
+                                        emptySymbol="fa fa-star-o"
+                                        fullSymbol="fa fa-star"
+                                        initialRating={rating.rating}
+                                        readonly
+                                    />
                                 </div>
                                 <div className="d-lg-flex flex-row justify-content-center align-items-center mt-3">
-                                    <button class="btn btn-primary me-3">Add To Homepage</button>
-                                    
-                                    <button class="btn btn-danger" onClick={()=>deleteReviewHandler(rating._id)}>Remove</button>
+                                    <button className="btn btn-primary me-3">
+                                        Add To Homepage
+                                    </button>
+
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={() => deleteReviewHandler(rating._id)}
+                                    >
+                                        Remove
+                                    </button>
                                 </div>
                             </div>
                         </div>
