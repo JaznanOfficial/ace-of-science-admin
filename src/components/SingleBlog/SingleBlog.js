@@ -20,23 +20,15 @@ const SingleBlog = () => {
     const matchedData = singleData.find(singleBlog => singleBlog._id === id)
 
 
-    const {imageLink, heading, text} = matchedData ||{}
+    const { content } = matchedData || {}
+    console.log(content);
 
 
     return (
-        <div className="single-blog container w-75">
-            <div className="image-div mb-5 p-0">
-                <img
-                    src={imageLink}
-                    alt=""
-                />
-            </div>
-            <div>
-                <h1 className="text-danger">{heading}</h1>
-                <p className="text-start fs-5 fw-700">
-                   {text}
-                </p>
-            </div>
+        <div className="single-blog container w-75 border border-rounded shadow my-3" dangerouslySetInnerHTML={{
+            __html:  content
+        }}>
+            
         </div>
     );
 };

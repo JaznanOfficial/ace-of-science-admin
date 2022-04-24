@@ -7252,6 +7252,18 @@ jju@^1.1.0:
   resolved "https://registry.yarnpkg.com/jju/-/jju-1.4.0.tgz#a3abe2718af241a2b2904f84a625970f389ae32a"
   integrity sha1-o6vicYryQaKykE+EpiWXDzia4yo=
 
+jodit-pro-react@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/jodit-pro-react/-/jodit-pro-react-1.3.1.tgz#d9bf55f451cec3f7f56af29a2f089e8d278a7471"
+  integrity sha512-tQRAcnZ+0gDS/wWgg3SR6Q6yDOFcUptyab9TZVlIaujG0wiXjWILFJ6URrzBPN2NBzJxXMjzgzRRTIM5d51HrA==
+  dependencies:
+    jodit-pro "^1.3"
+
+jodit-pro@^1.3:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/jodit-pro/-/jodit-pro-1.3.1.tgz#f5e4763325291b05f8893abfada13f196ce4504e"
+  integrity sha512-lwLFfLptiUwDQA8EqBzdyZzTYH4OvFbVmJtx91kEPqgBQx1ovhYpMeigmTPri8luI+o99Ilj7S/Of5bwup0hLQ==
+
 join-path@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/join-path/-/join-path-1.1.1.tgz#10535a126d24cbd65f7ffcdf15ef2e631076b505"

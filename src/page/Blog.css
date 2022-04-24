@@ -29,7 +29,10 @@
     color: tomato !important;
 }
 
-.card-img-top{
-    width: 90% !important;
+.card{
+    height: 50rem !important;
+}
+.card img{
+    width: 300px !important;
     border-radius: 10px !important;
 }

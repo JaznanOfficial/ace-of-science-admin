@@ -3,20 +3,20 @@
 }
 
 .single-blog img{
-    width: 62rem;
+    width: 40rem;
 }
 
 
 
 @media only screen and (max-width: 520px) {
     .single-blog img{
-        width: 100% !important;
+        width: 80% !important;
     }
     .single-blog{
-        margin: 0 50px !important;
+        margin: 20px 10px !important;
         width: 100% !important;
     }
     .container{
-        width: 100% !important;
+        width: 95% !important;
     }
   }
