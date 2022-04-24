@@ -36,3 +36,7 @@
     width: 300px !important;
     border-radius: 10px !important;
 }
+
+.jodit-wysiwyg{
+    min-height: 300px !important;
+}
