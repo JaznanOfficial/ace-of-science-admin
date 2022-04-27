@@ -54,7 +54,7 @@ const GetBlog = () => {
                         const content = singleBlog.content
                         // console.log(content);
                         return <Col key={singleBlog._id}>
-                            <Card className="shadow" >
+                            <Card className="shadow blog-card" >
                                 <Card.Body dangerouslySetInnerHTML={{
                                     __html:  content
                                 }} className='overflow-hidden pb-3'>

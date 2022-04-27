@@ -29,8 +29,11 @@ export default function Header() {
                                 <Link className="nav-link" to="adminusers">
                                     Admin-Users
                                 </Link>
-                                <Link className="nav-link" to="blog">
-                                    Blog
+                                <Link className="nav-link" to="notes">
+                                    Notes
+                                </Link>
+                                <Link className="nav-link" to="blogs">
+                                    Blogs
                                 </Link>
                                 <Link className="nav-link" to="lesson">
                                     Lesson

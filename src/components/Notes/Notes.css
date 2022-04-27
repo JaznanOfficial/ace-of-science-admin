@@ -1,0 +1,10 @@
+.single-note a:hover{
+    color: black !important;
+}
+.single-note h3{
+    /* color: #FE1A00 !important; */
+}
+
+.single-note .card{
+    height: 80px !important;
+}

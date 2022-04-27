@@ -5,6 +5,7 @@ import Auth from "./components/Auth";
 import Events from "./components/Events/Events";
 import Header from "./components/Header";
 import Magazine from "./components/Magazine/Magazine";
+import Notes from "./components/Notes/Notes";
 import Review from "./components/Review/Review";
 import SingleBlog from "./components/SingleBlog/SingleBlog";
 import Blog from "./page/Blog";
@@ -47,10 +48,18 @@ function App() {
                         }
                     />
                     <Route
-                        path="/blog"
+                        path="/blogs"
                         element={
                             <Auth>
                                 <Blog />
+                            </Auth>
+                        }
+                    />
+                    <Route
+                        path="/notes"
+                        element={
+                            <Auth>
+                                <Notes />
                             </Auth>
                         }
                     />
