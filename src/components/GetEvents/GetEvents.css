@@ -1,0 +1,16 @@
+.achievement .card .achievement-img{
+    width: 235px !important;
+    height: 235px !important;
+    border-radius: 15px !important;
+}
+.achievement .card{
+    /* width: max-content; */
+    border-radius: 20px !important;
+}
+
+@media only screen and (max-width: 520px) {
+    .achievement .card .achievement-img{
+        width: 300px !important;
+        border-radius: 15px !important;
+    }
+  }

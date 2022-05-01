@@ -16,7 +16,7 @@ const Notes = () => {
         const data = { pdfLink, text };
         console.log(data);
 
-        fetch("http://localhost:5000/notes", {
+        fetch("https://warm-citadel-00877.herokuapp.com/notes", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
