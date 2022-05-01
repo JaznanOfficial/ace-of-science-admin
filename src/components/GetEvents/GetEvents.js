@@ -6,7 +6,7 @@ import "./GetEvents.css";
 const GetEvents = () => {
     const [getEvents, setGetEvents] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/event")
+        fetch("https://warm-citadel-00877.herokuapp.com/event")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -26,7 +26,7 @@ const GetEvents = () => {
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                fetch(`http://localhost:5000/event/${id}`, {
+                fetch(`https://warm-citadel-00877.herokuapp.com/event/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())

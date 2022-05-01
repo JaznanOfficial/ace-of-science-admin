@@ -19,7 +19,7 @@ const Events = () => {
         const heading = headingRef.current.value;
         const data = { firstImage, secondImage, thirdImage, fourthImage, heading };
         console.log(data);
-        fetch("http://localhost:5000/event", {
+        fetch("https://warm-citadel-00877.herokuapp.com/event", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
